@@ -1,6 +1,7 @@
 ﻿using EFCoreEnigmaCamp.Cores;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,13 @@ namespace EFCoreEnigmaCamp.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-QEO3NAA\SQLEXPRESS;Database=SchoolDB;User Id=sa;Password=12345;TrustServerCertificate=True;");
+            var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional:false);
+            var configuration = builder.Build();
+
+            string connStr = configuration.GetConnectionString("DBConnection");
+
+            optionsBuilder
+                .UseSqlServer(connStr);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
