@@ -297,36 +297,36 @@
 //    }
 //}
 
-using EFCoreEnigmaCamp.Cores;
-using EFCoreEnigmaCamp.Database;
-using Microsoft.EntityFrameworkCore;
-using System.Net.Http.Headers;
+//using EFCoreEnigmaCamp.Cores;
+//using EFCoreEnigmaCamp.Database;
+//using Microsoft.EntityFrameworkCore;
+//using System.Net.Http.Headers;
 
-class Program
-{
-    static void Main()
-    {
-        var context = new SchoolContext();
-        var student1 = new Student();
-        student1.StudentCode = "STB-003";
-        student1.StudentName = "Momoshiki";
-        student1.DoB = DateTime.Now;
-        student1.Gender = Gender.Female;
+//class Program
+//{
+//    static void Main()
+//    {
+//        var context = new SchoolContext();
+//        var student1 = new Student();
+//        student1.StudentCode = "STB-003";
+//        student1.StudentName = "Momoshiki";
+//        student1.DoB = DateTime.Now;
+//        student1.Gender = Gender.Female;
 
-        var student2 = new Student();
-        student2.StudentCode = "STB-003";
-        student2.StudentName = "Sasuke";
-        student2.DoB = DateTime.Now;
-        student2.Gender = Gender.Male;
+//        var student2 = new Student();
+//        student2.StudentCode = "STB-003";
+//        student2.StudentName = "Sasuke";
+//        student2.DoB = DateTime.Now;
+//        student2.Gender = Gender.Male;
 
-        var studentList = new List<Student>();
-        studentList.Add(student1);
-        studentList.Add(student2);
+//        var studentList = new List<Student>();
+//        studentList.Add(student1);
+//        studentList.Add(student2);
 
-        context.Students.AddRange(studentList); // Save multi record
+//        context.Students.AddRange(studentList); // Save multi record
 
-        context.SaveChanges();
+//        context.SaveChanges();
 
-        Console.WriteLine("Multi insert EFCore");
-    }
-}
+//        Console.WriteLine("Multi insert EFCore");
+//    }
+//}
